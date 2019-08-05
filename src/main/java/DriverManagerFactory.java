@@ -2,7 +2,7 @@
 public class DriverManagerFactory {
 
     public static DriverManager getDriverManager (DriverType type) {
-        DriverManager driverManager;
+        DriverManager driverManager = null;
 
         switch (type) {
             case CHROME:
@@ -11,9 +11,9 @@ public class DriverManagerFactory {
             case FIREFOX:
                 driverManager = new FirefoxDriverManager();
                 break;
-            default:
+/*            default:
                 driverManager = new IEDriverManager();
-                break;
+                break;*/
         }
         return driverManager;
     }

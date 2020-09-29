@@ -26,5 +26,5 @@ Report will be generated into temp folder. Web server with results will start.
 
 * `mvn allure:report`
 
-Report will be generated tо directory: `target/site/allure-maven/index.html`
+Report will be generated tо directory: `target/site/Project/index.html`
 

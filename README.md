@@ -14,6 +14,10 @@ Install and configure Apache Maven from the binaries provided by the Maven proje
 - Debian/Ubuntu
 - Windows
 
+### Install
+
+* `git clone git@github.com:alex2018hillel/Project.git`
+
 ### Run test
 
 * `mvn clean test` - run your tests

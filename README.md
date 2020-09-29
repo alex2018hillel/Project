@@ -2,12 +2,11 @@
 
 **Test task:**
 Write an automated test to verify that the “Add a new computer” functionality in “Computer database” is working.
-**[http://computer-database.gatling.io/computers](http://computer-database.gatling.io/computers)**
-**Desirable:** filling in all the data in the form of adding a new computer. 
-Introduced date: 10 years ago before the test was written
-Discontinued: date the test was written
 
-Install and configure Apache Maven from the binaries provided by the Maven project.
+**Desirable:** filling in all the data in the form of adding a new computer. 
+**Introduced date:** 10 years ago before the test was written.
+**Discontinued:** date the test was written.
+**[http://computer-database.gatling.io/computers](http://computer-database.gatling.io/computers)**
 
 ### Platforms
 
@@ -15,6 +14,8 @@ Install and configure Apache Maven from the binaries provided by the Maven proje
 - Windows
 
 ### Install
+
+Install and configure Apache Maven from the binaries provided by the Maven project.
 
 * `git clone git@github.com:alex2018hillel/Project.git`
 

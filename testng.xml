@@ -10,7 +10,7 @@
         </groups>
 
         <classes>
-            <class name="LoginTest" />
+            <class name="Tests" />
         </classes>
     </test>
 

@@ -29,13 +29,13 @@ public class Tests {
     public void computersDatabaseTest() {
         computersPage.getComputersPage();
         computersPage.clickAddComputer();
-        String title = driver.findElement(By.xpath("//*[@id=\"main\"]/h1")).getText();
+        String title = driver.findElement(By.xpath("//*[@id='main']/h1")).getText();
         Assert.assertEquals( title, "Add a computer");
     }
 
     @Test
     public void newComputerTest() {
-        String computerName = "Sony Vaio P VGN-P535H/G";
+        String computerName = "Sony 400S";
         String currentTimeStamp = newComputerPage.getCurrentTimeStamp();
         newComputerPage.setComputerName(computerName);
         newComputerPage.setIntroduced();
@@ -53,7 +53,7 @@ public class Tests {
         for (WebElement field : fields) {
             List<WebElement> comps = field.findElements(By.xpath("td/a//parent::td//parent::tr"));
             for (WebElement comp : comps) {
-                String computer = comp.findElement(By.xpath("td/a[contains(text(),'" + computerName + "')]")).getText();
+                String computer = comp.findElement(By.xpath("td/a[text()='" + computerName + "']")).getText();
                 Assert.assertEquals(computer, computerName);
             }
         }

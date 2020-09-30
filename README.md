@@ -34,3 +34,4 @@ Report will be generated into temp folder. Web server with results will start.
 Report will be generated tо directory: `target/site/Project/index.html`
 
 ![Alt text](src/main/resources/allure.jpg?raw=true "Basic Features")
+![Alt text](src/main/resources/allure.png?raw=true "Basic Features")

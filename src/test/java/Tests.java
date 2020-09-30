@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -7,6 +8,7 @@ import org.testng.annotations.Test;
 import pages.ComputersPage;
 import pages.NewComputerPage;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Tests {
@@ -33,7 +35,7 @@ public class Tests {
 
     @Test
     public void newComputerTest() {
-        String computerName = "Samsung Galaxy Tab";
+        String computerName = "Sony Vaio P VGN-P535H/G";
         String currentTimeStamp = newComputerPage.getCurrentTimeStamp();
         newComputerPage.setComputerName(computerName);
         newComputerPage.setIntroduced();
@@ -44,13 +46,19 @@ public class Tests {
         computersPage.setComputerName(computerName);
         computersPage.clickComputerSearch();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        String expectedText = driver.findElement(By.xpath("//div[@id='pagination']//li[@class='current']/a")).getText();
-        Assert.assertEquals(expectedText,"Displaying 1 to 1 of 1");
-        String expectedComputerName = driver.findElement(By.xpath("//td/a")).getText();
-        Assert.assertEquals(expectedComputerName,computerName);
-        String expectedDate = driver.findElement(By.xpath("//tr/td[3]")).getText();
-        Assert.assertEquals(expectedDate,currentTimeStamp);
+
+        List<WebElement> rows = driver.findElements(By.xpath("//tbody/tr"));
+        Assert.assertTrue(rows.size() > 0);
+        List<WebElement> fields = driver.findElements(By.xpath("//tbody/tr/td[2][contains(text(),'" + currentTimeStamp + "')]//parent::tr"));
+        for (WebElement field : fields) {
+            List<WebElement> comps = field.findElements(By.xpath("td/a//parent::td//parent::tr"));
+            for (WebElement comp : comps) {
+                String computer = comp.findElement(By.xpath("td/a[contains(text(),'" + computerName + "')]")).getText();
+                Assert.assertEquals(computer, computerName);
+            }
+        }
     }
+
 
     @AfterClass
     public void quit() {
